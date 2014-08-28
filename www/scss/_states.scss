@@ -1,0 +1,7 @@
+button {
+  &.button {
+    &.clicked {
+      background-color: $button-blue;
+    }
+  }
+}

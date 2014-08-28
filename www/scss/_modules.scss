@@ -1,0 +1,70 @@
+// HOME
+.logo {
+  height: 200px;
+  width: 200px;
+  margin-bottom: 50px;
+}
+
+.row {
+  &.row-text-input-button {
+    padding: 0;
+  }
+}
+
+.button {
+  &.button-text-input {
+    margin: -1px;
+    border-left: 0;
+    border-color: $button-light-border;
+    border-width: 1px;
+  }
+}
+
+.button{
+  &.button-male{
+    background-color: $male-color;
+  }
+  &.button-female{
+    background-color: $female-color;
+  }
+}
+
+.item-input {
+  &.item-text-input-button {
+    border-right-color: #fff;
+  }
+}
+
+// Questions
+.item {
+  &.buttons-row {
+    border: 0;
+    padding: 0;
+    button {
+      margin: 0;
+      border-radius: 0;
+    }
+  }
+  &.pager-row {
+    border: 0;
+  }
+  &.first-row {
+    border-top: 0;
+  }
+  .button {
+    &.nav-button {
+      background-color: $button-blue;
+    }
+  }
+}
+
+
+// Results
+.list {
+  &.result-list {
+    margin-bottom: 0;
+    .borderless {
+      border: 0;
+    }
+  }
+}
