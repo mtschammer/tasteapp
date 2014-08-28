@@ -1,0 +1,68 @@
+<ion-view title="{{players[playerNumber].name}}'s turn" class="">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+
+    <ion-content>
+        <form>
+            <ion-slide-box on-slide-changed="slideHasChanged($index)">
+                <ion-slide ng-repeat="category in categories">
+                    <div class="list">
+                        <input type="hidden" name="player" value="{{players.activePlayer}}"
+                               ng-model="answers[player]">
+
+                        <div class="item item-text-wrap text-center">
+                            <h1>{{category}}</h1>
+                        </div>
+                        <div ng-repeat="question in questions | filter:{category: category}">
+                            <div class="item item-thumbnail-right item-text-wrap" ng-class="$first ? 'first-row' : ''">
+                                <img src="{{question.image}}">
+
+                                <p>{{question.id}}: {{question.text}}</p>
+                            </div>
+                            <div class="item buttons-row row">
+                                <button class="button button-calm button-block"
+                                        ng-click="answers[question.id] = 1"
+                                        ng-class="answers[question.id] == 1 ? 'clicked' : ''">
+                                    No
+                                </button>
+                                <button class="button button-calm button-block"
+                                        ng-click="answers[question.id] = 2"
+                                        ng-class="answers[question.id] == 2 ? 'clicked' : ''">
+                                    If other
+                                </button>
+                                <button class="button button-calm button-block"
+                                        ng-click="answers[question.id] = 3"
+                                        ng-class="answers[question.id] == 3 ? 'clicked' : ''">
+                                    YES
+                                </button>
+                                <input type="hidden" name="question_{{question.id}}"
+                                       ng-model="answers[question.id]">
+                            </div>
+                        </div>
+                        <div class="item text-center">
+                            <button class="button nav-button button-positive" ng-click="prevSlide()" ng-if="!$first">
+                                Back
+                            </button>
+                            <button class="button button-balanced" ng-click="saveAnswers()"
+                                    ng-if="$last && playerNumber < players.length - 1">
+                                {{players[playernumber+1].name}}'s turn!
+                            </button>
+                            <button class="button button-balanced" ng-click="saveAnswers()"
+                                    ng-if="$last && playerNumber == players.length - 1">
+                                See results!
+                            </button>
+                            <button class="button nav-button button-positive" ng-click="nextSlide()" ng-if="!$last">
+                                Next
+                            </button>
+                        </div>
+                        <div class="item pager-row"></div>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+        </form>
+    </ion-content>
+</ion-view>

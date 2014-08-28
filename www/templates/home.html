@@ -1,0 +1,53 @@
+<ion-view title="AppName" class="">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+
+    <ion-content class="center">
+        <form class="list list-inset">
+            <img src="someimage.jpg" class="logo">
+
+            <div>
+                <div class="row row-text-input-button">
+                    <div class="col-80 ">
+                        <label class="item item-text-input-button item-input">
+                            <input type="text" placeholder="Name" ng-model="players[0].name" required>
+                        </label>
+                    </div>
+                    <div class="col-20">
+                        <button class="button button-text-input button-male icon ion-man"
+                                ng-if="players[0].male"
+                                ng-click="players[0].male = !players[0].male"></button>
+                        <button class="button button-text-input button-female icon ion-woman"
+                                ng-if="!players[0].male"
+                                ng-click="players[0].male = !players[0].male"></button>
+                    </div>
+                </div>
+                <div class="row row-text-input-button">
+                    <div class="col-80 ">
+                        <label class="item item-text-input-button item-input">
+                            <input type="text" placeholder="Name" ng-model="players[1].name" required>
+                        </label>
+                    </div>
+                    <div class="col-20">
+                        <button class="button button-text-input button-male icon ion-man"
+                                ng-if="players[1].male"
+                                ng-click="players[1].male = !players[1].male"></button>
+                        <button class="button button-text-input button-female icon ion-woman"
+                                ng-if="!players[1].male"
+                                ng-click="players[1].male = !players[1].male"></button>
+                    </div>
+                </div>
+
+            </div>
+            <button class="button button-block button-calm"
+                    ng-disabled="!players[0].name || !players[1].name"
+                    ng-click="begin()">
+                Let's go!
+            </button>
+        </form>
+    </ion-content>
+</ion-view>
